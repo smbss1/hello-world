@@ -1,0 +1,13 @@
+{
+  "name": "autokestra-plugin-hello-world-example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun build --target=bun index.ts --outfile dist/index.js",
+    "package": "bun run build && tar -czf hello-world-0.1.0.tgz plugin.yaml dist"
+  },
+  "dependencies": {
+    "@autokestra/plugin-sdk": "0.0.2"
+  }
+}

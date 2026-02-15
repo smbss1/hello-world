@@ -1,0 +1,24 @@
+namespace: demo
+name: hello-world
+version: 0.1.0
+description: "Simple hello world plugin example for CLI install tests"
+runtime:
+  entrypoint: dist/index.js
+actions:
+  - name: run
+    description: "Return a hello-world message"
+    input:
+      type: object
+      properties:
+        name:
+          type: string
+    output:
+      type: object
+      properties:
+        message:
+          type: string
+        plugin:
+          type: string
+      required:
+        - message
+        - plugin

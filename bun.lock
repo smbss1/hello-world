@@ -1,0 +1,17 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "autokestra-plugin-hello-world-example",
+      "dependencies": {
+        "@autokestra/plugin-sdk": "0.0.2",
+      },
+    },
+  },
+  "packages": {
+    "@autokestra/plugin-sdk": ["@autokestra/plugin-sdk@0.0.2", "", { "dependencies": { "valibot": "^1.2.0" } }, "sha512-F64sTs73o7yTMNkToyE25+TVIh6YXttsiPfchy+3EWCPbmoeTQQPEkZZvRdddVCCIdTMCSlZHF39kF6/bKjbLg=="],
+
+    "valibot": ["valibot@1.2.0", "", { "peerDependencies": { "typescript": ">=5" }, "optionalPeers": ["typescript"] }, "sha512-mm1rxUsmOxzrwnX5arGS+U4T25RdvpPjPN4yR0u9pUBov9+zGVtO84tif1eY4r6zWxVxu3KzIyknJy3rxfRZZg=="],
+  }
+}
