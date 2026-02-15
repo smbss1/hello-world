@@ -22,18 +22,23 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build plugin artifact
-        run: bun run package
+      - name: Build plugin
+        run: bun run build
+
+      - name: Set artifact name
+        run: echo "ARTIFACT=hello-world-${GITHUB_REF_NAME}.tgz" >> "$GITHUB_ENV"
+
+      - name: Create release artifact
+        run: tar -czf "$ARTIFACT" plugin.yaml dist
 
       - name: Generate checksum
         run: |
-          ARTIFACT=$(ls -1 hello-world-*.tgz | head -n 1)
           sha256sum "$ARTIFACT" > "$ARTIFACT.sha256"
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            hello-world-*.tgz
-            hello-world-*.tgz.sha256
+            ${{ env.ARTIFACT }}
+            ${{ env.ARTIFACT }}.sha256
           generate_release_notes: true
